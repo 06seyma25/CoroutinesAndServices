@@ -36,16 +36,19 @@ class PopupService : Service() {
         super.onCreate()
         createNotificationChannel()
 
-
-        ////////////////////////////////////
-
-        //TODO starte den Service hier
-
-        ////////////////////////////////////
-
+        // Starte den Service als Foreground-Service
+        startForegroundService()
 
         registerUpdateReceiver()
         initializeTimerFromSettings()
+    }
+
+    private fun startForegroundService() {
+        // Erstes Notification erstellen, um den Service als Foreground-Service zu starten
+        val notification = getNotification("Popup Service is running...")
+
+        // Starte den Service im Vordergrund mit einer eindeutigen ID
+        startForeground(1, notification)
     }
 
     override fun onDestroy() {
@@ -104,7 +107,6 @@ class PopupService : Service() {
         )
     }
 
-
     private fun timerOptionToMillis(option: String): Long {
         return when (option) {
             "10s" -> 10_000L
@@ -127,7 +129,6 @@ class PopupService : Service() {
             }
         }
     }
-
 
     private fun sendNotification(message: String) {
         if (ActivityCompat.checkSelfPermission(

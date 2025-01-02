@@ -4,9 +4,12 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpackcompose.viewmodel.WeatherViewModel
 import com.example.jetpackcompose.ui.WeatherApp
+import com.example.jetpackcompose.ui.views.ForecastWeatherView
 import com.example.jetpackcompose.viewmodel.PopupServiceManager
 
 class MainActivity : ComponentActivity() {
@@ -32,3 +35,5 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+

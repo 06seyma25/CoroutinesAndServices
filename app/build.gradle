@@ -72,7 +72,8 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
 
     // For using BottomNavigation and other Material3 components
-    implementation(libs.androidx.material3.v131)  // Material3 components
+    implementation(libs.androidx.material3.v131)
+    implementation libs.androidx.runtime.livedata// Material3 components
 
     // Testing dependencies
     testImplementation(libs.junit)
